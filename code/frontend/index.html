@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libra Assist — Admin Console</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Libra Assist — Admin Console</h1>
+            <p>Knowledge base management, chunking inspection, and RAG testing interface.</p>
+        </header>
+
+        <div class="card">
+            <h2>
+                1. System Health & Config
+                <span id="healthBadge" class="status-badge">Unknown</span>
+            </h2>
+            <div class="actions">
+                <button id="btnHealth">Check Health Status</button>
+            </div>
+            <div class="response-container">
+                <pre id="healthResult">// System metrics will appear here...</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>2. Text Chunking Playground</h2>
+            <div class="form-group">
+                <label for="chunkText">Source Text</label>
+                <textarea id="chunkText" placeholder="Paste document content here to test splitting strategies..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="chunkStrategy">Strategy</label>
+                <select id="chunkStrategy">
+                    <option value="static">Static</option>
+                    <option value="sentence">Sentence</option>
+                    <option value="dynamic">Dynamic</option>
+                    <option value="semantic">Semantic</option>
+                </select>
+            </div>
+            <button id="btnChunk">Generate Chunks</button>
+            <div class="response-container">
+                <pre id="chunkResult">// Chunk outputs will appear here...</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>3. Knowledge Ingestion</h2>
+            <div class="form-group">
+                <label for="ingestText">Content to Ingest</label>
+                <textarea id="ingestText" placeholder="Enter text to convert into embeddings and store in Qdrant..."></textarea>
+            </div>
+            <button id="btnIngest">Ingest Content</button>
+            <div class="response-container">
+                <pre id="ingestResult">// Ingestion response & dimensions will appear here...</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>4. Collection Management</h2>
+            <div class="actions">
+                <button id="btnInspect">Inspect Collection</button>
+                <button id="btnReset" class="btn-danger">Reset Collection</button>
+            </div>
+            <div class="response-container">
+                <pre id="collectionResult">// Collection status details will appear here...</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>5. Similarity Search</h2>
+            <div class="form-group">
+                <label for="searchQuery">Search Query</label>
+                <input type="text" id="searchQuery" placeholder="Type a semantic search query..." />
+            </div>
+            <button id="btnSearch">Execute Search</button>
+            <div class="response-container">
+                <pre id="searchResult">// Relevant matches and cosine scores will appear here...</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>6. Ask Model (RAG Evaluation)</h2>
+            <div class="form-group">
+                <label for="askQuery">Question</label>
+                <input type="text" id="askQuery" placeholder="Ask a question about the stored knowledge..." />
+            </div>
+            <label class="checkbox-group">
+                <input type="checkbox" id="useRag" checked />
+                <span>Enable RAG context (retrieve grounded context before answering)</span>
+            </label>
+            <button id="btnAsk">Send Query</button>
+            <div class="response-container">
+                <pre id="askResult">// Final model answer, retrieved context, and prompt_sent will appear here...</pre>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

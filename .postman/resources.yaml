@@ -1,0 +1,13 @@
+workspace:
+  id: 0cfbed99-a53e-45d0-85e0-5358c0864a19
+
+localResources:
+  collections:
+    - ../code/backend/postman/rag-teaching-api.postman_collection.json
+
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+
+cloudResources:
+  collections:
+    ../code/backend/postman/rag-teaching-api.postman_collection.json: 56931035-ecc9d6e2-c304-45a7-83d6-ef245ef91772
+    ../postman/collections/RAG Teaching API: dce7b855-6bb0-44cd-a7a5-5fa43e35f1dd

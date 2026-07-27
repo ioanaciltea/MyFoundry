@@ -1,0 +1,5 @@
+1. 1536
+2. 0.2139
+Low Relevance: Because the query is off-topic, a low score (like 0.2139 on a 0-to-1 scale) generally indicates that the system correctly recognized the input as irrelevant, distant from the target domain, or failing to meet the required threshold for a successful match.
+3. If use_rag is turned on, the system appends a CONTEXT section directly into prompt_sent, which includes text excerpts pulled from the database alongside their match scores and reference markers (like [1]). Furthermore, extra prompts are sent to the system_prompt to ensure the AI relies solely on those specific passages and cites them correctly.
+4. The lyrical agent runs in Docker, which is known because the containerized environment handles its execution without requiring a local installation of Node.js on the host machine, even though its configuration metadata lists the runtime explicitly as "runs_on": "unknown".
